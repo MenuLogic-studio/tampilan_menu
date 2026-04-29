@@ -1,150 +1,269 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detail Menu</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    }
 
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+    body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        margin: 0;
+        padding: 10px;
+    }
 
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-  </style>
+    .card {
+        width: 100%;
+        min-height: 100vh;
+        max-width: 480px;
+        margin: auto;
+        background: white;
+        border-radius: 0;
+        padding: 16px;
+      }
+    
+    @media (min-width: 600px){
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card {
+        min-height: auto;
+        border-radius: 25px;
+        max-width: 360px;
+      }
+    }  
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+      }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #FA8E3C;
+        border: none;
+        padding: 10px;
+        border-radius: 12px;
+    }
+
+    .header h3 {
+        margin: 0;
+        font-size: 15px;
+    }
+
+    .heart {
+        color: #EE3535;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .heart:active {
+        transform: scale(1.3);
+    }
+
+    .food-img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 15px;
+        margin: 15px 0;
+    }
+
+    .title-price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .title {
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .price {
+        color: #EE3535;
+        font-weight: bold;
+    }
+
+    .rating {
+        color: #FBB13C;
+        font-size: 13px;
+        margin: 5px 0;
+    }
+
+    .section-title {
+        font-weight: bold;
+        margin-top: 12px;
+        font-size: 13px;
+    }
+
+    .ingredients {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+        flex-wrap: wrap; /* 🔥 biar turun kalau sempit */
+    }
+
+    .ingredient {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .i1 { background: #f3e5f5; }
+    .i2 { background: #e3f2fd; }
+    .i3 { background: #fff3e0; }
+    .i4 { background: #ffebee; }
+
+    .description {
+        font-size: 12.5px;
+        color: #666;
+        margin-top: 6px;
+        line-height: 1.4;
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 18px;
+        gap: 10px;
+    }
+
+    .qty {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #f1f1f1;
+        padding: 5px 10px;
+        border-radius: 10px;
+    }
+
+    .btn {
+        width: 28px;
+        height: 28px;
+        border: none;
+        border-radius: 6px;
+        background: #EE3535;
+        color: white;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    .cart-btn {
+        background: #EE3535;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 12px;
+        cursor: pointer;
+        flex: 1;
+    }
+
+    @media (max-width: 400px) {
+        .card {
+            padding: 14px;
+        }
+
+        .bottom {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .cart-btn {
+            width: 100%;
+        }
+    }
+
+    /* 🔥 EXTRA: layar gede biar gak terlalu kecil */
+    @media (min-width: 768px) {
+        .card {
+            max-width: 400px;
+        }
+    }
+</style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body>
 
-<!-- WRAPPER -->
-<div class="md:flex">
+<div class="card">
 
-  <!-- SIDEBAR (DESKTOP ONLY) -->
-  <aside class="hidden md:block w-64 bg-white h-screen p-5 shadow">
-    <h1 class="font-bold text-lg mb-6">Menu</h1>
-    <nav class="space-y-4 text-gray-600">
-      <div>🏠 Beranda</div>
-      <div>🔥 Populer</div>
-      <div>👤 Profil</div>
-    </nav>
-  </aside>
+    <div class="header">
+        <span>←</span>
+        <h3>Detail Menu</h3>
+        <span class="heart">❤</span>
+    </div>
 
-  <!-- MAIN -->
-  <div class="flex-1 pb-20">
+    <img src="https://media.istockphoto.com/id/2148672887/id/foto/burger-patty-daging-sapi-dengan-sayuran-dan-selada-dengan-latar-belakang-putih-file-berisi.jpg?s=612x612&w=0&k=20&c=PvX-ieuNxdwloMSicBs_voDWg0s6JumtOlZf2Al6TnA=" class="food-img">
 
-    <!-- HEADER -->
-    <header class="fixed md:static top-0 w-full bg-white shadow p-3 flex justify-between z-50">
-      <h1 class="font-bold">Menu</h1>
-      <span>❤️</span>
-    </header>
+    <div class="title-price">
+        <div class="title">Burger</div>
+        <div class="price">Rp7.000</div>
+    </div>
 
-    <main class="pt-16 md:pt-6 px-4 max-w-5xl mx-auto">
+    <div class="rating">★★★★★</div>
 
-      <!-- STORE -->
-      <section class="bg-white p-4 rounded-xl shadow flex gap-3 items-center">
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEDfPG2FsrlTllWl1u_0xbntjT6fX9RbjFifjDvOkcDWUPqpTuqWckrO8dmuV1CMK5wUKuQwhVqNk-hc_SccdgMPUnVgBQCgLuXNxNUM_U4h8BFVSuZsm_xnNi0taA7fV71hUAfNBrOh9cKV02RaI9sO6Jrdvq2PY9NkLjGmwW186QhBKLKA0znQB6kalkg_3SqVGKfYCBtXnHhogf0Yd5y5FOPx3MwuB_DmXuYFNUfqDwhSMJTakLCxjGY15kFG5J5O0EwLSNukg"
-             class="w-16 h-16 rounded-lg object-cover">
-        <div>
-          <h2 class="font-bold">Kantin Sejahtera</h2>
-          <p class="text-sm text-gray-500">⭐ 4.8 (120+)</p>
-        </div>
-      </section>
+    <div class="section-title">Bahan-bahan</div>
 
-      <!-- MENU -->
-      <section class="mt-4 grid md:grid-cols-2 gap-4">
+    <div class="ingredients">
+        <div class="ingredient i1">🧀</div>
+        <div class="ingredient i2">🍗</div>
+        <div class="ingredient i3">🧅</div>
+        <div class="ingredient i4">🍅</div>
+    </div>
 
-        <!-- ITEM -->
-        <div class="bg-white p-3 rounded-xl shadow">
+    <div class="section-title">Deskripsi</div>
+    <div class="description">
+        Burger daging sapi ini menggunakan 100% daging sapi berkualitas dengan sayuran segar.
+    </div>
 
-          <!-- MOBILE -->
-          <div class="flex items-center gap-3 md:hidden">
-            <img src="https://media.istockphoto.com/id/1458421012/id/foto/nasi-ayam-geprek-sambal-bawang.jpg"
-                 class="w-14 h-14 object-cover rounded-lg">
-
-            <div class="flex-1">
-              <h3 class="font-semibold text-sm">Ayam Geprek</h3>
-              <p class="text-red-500 font-bold text-sm">Rp8.000</p>
-            </div>
-
-            <button class="bg-red-100 text-red-600 w-10 h-10 rounded-lg flex items-center justify-center">
-              🛒
-            </button>
-          </div>
-
-          <!-- DESKTOP -->
-          <div class="hidden md:block">
-            <img src="https://resepmamiku.com/wp-content/uploads/2022/02/ayam-geprek-yscooking-760x950.jpg"
-                 class="w-full h-40 object-cover rounded-lg">
-
-            <h3 class="mt-2 font-semibold">Ayam Geprek</h3>
-
-            <div class="flex justify-between mt-2">
-              <span class="text-red-500 font-bold">Rp8.000</span>
-              <button class="bg-red-100 px-3 py-1 rounded">+</button>
-            </div>
-          </div>
+    <div class="bottom">
+        <div class="qty">
+            <button class="btn" onclick="kurang()">-</button>
+            <span id="jumlah">1</span>
+            <button class="btn" onclick="tambah()">+</button>
         </div>
 
-        <!-- ITEM -->
-        <div class="bg-white p-3 rounded-xl shadow">
+        <button class="cart-btn" onclick="keranjang()">Masukkan Keranjang</button>
+    </div>
 
-          <!-- MOBILE -->
-          <div class="flex items-center gap-3 md:hidden">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXW_75o4NSTjgOoycSXLOW0SF-UCDgDpqmHdyoQoQ4CW-MFU35K4N2es7nb4GX3WS511DBAE-Een9rStQDdZrm60yNwj2OzTjQ8VhHNWOA-pUya8y4ElszNS1W32DfZ5ig9xgHStB4I2yzHWm-3Se57RFSv3BV0LfFthBX-93jlbf_yjIuA_U3f5JGcnmNUt0lCYMHEx9GIOqjij6LOQAmE98WJOoqhK9UbbLuPM3Icwdh1HOCcXkdlOVZIaLtOqfz9SkHWxvY_Kc"
-                 class="w-14 h-14 object-cover rounded-lg">
-
-            <div class="flex-1">
-              <h3 class="font-semibold text-sm">Burger</h3>
-              <p class="text-red-500 font-bold text-sm">Rp7.000</p>
-            </div>
-
-            <button class="bg-red-100 text-red-600 w-10 h-10 rounded-lg flex items-center justify-center">
-              🛒
-            </button>
-          </div>
-
-          <!-- DESKTOP -->
-          <div class="hidden md:block">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXW_75o4NSTjgOoycSXLOW0SF-UCDgDpqmHdyoQoQ4CW-MFU35K4N2es7nb4GX3WS511DBAE-Een9rStQDdZrm60yNwj2OzTjQ8VhHNWOA-pUya8y4ElszNS1W32DfZ5ig9xgHStB4I2yzHWm-3Se57RFSv3BV0LfFthBX-93jlbf_yjIuA_U3f5JGcnmNUt0lCYMHEx9GIOqjij6LOQAmE98WJOoqhK9m"
-                 class="w-full h-40 object-cover rounded-lg">
-
-            <h3 class="mt-2 font-semibold">Burger</h3>
-
-            <div class="flex justify-between mt-2">
-              <span class="text-red-500 font-bold">Rp7.000</span>
-              <button class="bg-red-100 px-3 py-1 rounded">+</button>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- REVIEW -->
-      <section class="mt-6">
-        <h2 class="font-bold mb-2">Review</h2>
-        <div class="flex gap-3 overflow-x-auto">
-          <div class="bg-white p-3 rounded-xl shadow w-60">
-            <p class="text-sm italic">"Makanannya enak banget!"</p>
-            <p class="text-yellow-500">⭐⭐⭐⭐⭐</p>
-          </div>
-
-          <div class="bg-white p-3 rounded-xl shadow w-60">
-            <p class="text-sm italic">"Cepat dan murah!"</p>
-            <p class="text-yellow-500">⭐⭐⭐⭐⭐</p>
-          </div>
-        </div>
-      </section>
-
-    </main>
-  </div>
 </div>
 
-<!-- NAVBAR MOBILE -->
-<footer class="fixed bottom-0 w-full bg-white shadow flex justify-around py-2 md:hidden">
-  <span>🏠</span>
-  <span>🔥</span>
-  <span>👤</span>
-</footer>
+<script>
+let jumlah = 1;
+
+function tambah() {
+    jumlah++;
+    document.getElementById("jumlah").innerText = jumlah;
+}
+
+function kurang() {
+    if (jumlah > 1) {
+        jumlah--;
+        document.getElementById("jumlah").innerText = jumlah;
+    }
+}
+
+function keranjang() {
+    alert("Ditambahkan ke keranjang: " + jumlah + " item");
+}
+</script>
 
 </body>
 </html>
